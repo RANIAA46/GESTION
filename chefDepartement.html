@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>لوحة رئيس القسم - HADIR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(to right, #e0f7f4, #ffffff);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 0;
+    }
+
+    .header {
+      background-color: #00796b;
+      color: white;
+      padding: 20px 0;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      z-index: 1;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .dashboard-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 40px 20px;
+      width: 100%;
+      max-width: 1100px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .card {
+      flex: 1 1 calc(30% - 30px);
+      max-width: 280px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      padding: 25px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-top: 5px solid #26a69a;
+      min-width: 230px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .card i {
+      font-size: 30px;
+      color: #00796b;
+      margin-bottom: 15px;
+    }
+
+    .card span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .footer {
+      margin-top: auto;
+      padding: 15px;
+      font-size: 13px;
+      color: #666;
+      z-index: 1;
+    }
+
+    .logout-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ff5252;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      z-index: 3;
+    }
+
+    .logout-btn:hover {
+      background-color: #d32f2f;
+    }
+
+    @media (max-width: 900px) {
+      .card {
+        flex: 1 1 calc(45% - 30px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1><i class="fas fa-user-cog"></i> لوحة تحكم رئيس القسم</h1>
+  </div>
+
+  <div class="dashboard-container">
+    <div class="card" onclick="goTo('enseignants.php')">
+      <i class="fas fa-calendar-alt"></i>
+      <span>إدارة الحصص</span>
+    </div>
+
+    <div class="card" onclick="goTo('modifiermotpass.html')">
+      <i class="fas fa-key"></i>
+      <span>تعديل كلمة المرور</span>
+    </div>
+
+    <div class="card" onclick="goTo('tableetud.php')">
+      <i class="fas fa-user-graduate"></i>
+      <span>إدارة الطلبة</span>
+    </div>
+
+    
+    <div class="card" onclick="goTo('rapport_absences.php')">
+      <i class="fas fa-file-alt"></i>
+      <span>تقارير الغياب</span>
+    </div>
+
+    <div class="card" onclick="goTo('gestion_enseignants.php')">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <span>إدارة الأساتذة</span>
+    </div>
+
+    <div class="card" onclick="goTo('gestion_modules.php')">
+      <i class="fas fa-book"></i>
+      <span>إدارة الوحدات</span>
+    </div>
+
+    <div class="card" onclick="goTo('tablesalles.php')">
+      <i class="fas fa-door-open"></i>
+      <span>إدارة القاعات</span>
+    </div>
+
+    <div class="card" onclick="goTo('repartition.php')">
+      <i class="fas fa-th-large"></i>
+      <span>التوزيع</span>
+    </div>
+  </div>
+
+  <button class="logout-btn" onclick="window.location.href='logout.php'">تسجيل الخروج</button>
+
+  <div class="footer">
+    نظام HADIR &copy; 2025 - المدرسة العليا للأساتذة
+  </div>
+
+  <script>
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>

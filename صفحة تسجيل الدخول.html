@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>تسجيل الدخول - HADIR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #76c7c0, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background-color:#d2faebe7;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+      width: 360px;
+      text-align: center;
+    }
+
+    .login-box img {
+      width: 70px;
+      margin-bottom: 15px;
+      border-radius: 50%;
+    }
+
+    .program-name-animated {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .program-name-animated .logo-icon {
+      font-size: 22px;
+      color: #ffffff;
+      background: linear-gradient(45deg, #00796b, #26a69a);
+      padding: 8px;
+      border-radius: 50%;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .program-name-animated .text {
+      background: linear-gradient(to right, #00796b, #00bcd4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .school-name {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .ensk {
+      font-size: 17px;
+      font-weight: bold;
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: right;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #2c3e50;
+    }
+
+    .input-container {
+      position: relative;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .input-container input,
+    .input-container select {
+      width: 100%;
+      padding: 10px 10px 10px 35px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      text-align: right;
+      font-size: 14px;
+    }
+
+    .input-container i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #00796b;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      background-color: #00796b;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 12px;
+      color: #777;
+    }
+
+    .forgot-link {
+      margin-top: 10px;
+      display: block;
+      font-size: 13px;
+      color: #00796b;
+      text-decoration: none;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <img src="img.jpg" alt="شعار المدرسة" />
+
+    <div class="program-name-animated">
+      <i class="fas fa-user-check logo-icon"></i>
+      <span class="text">HADIR</span>
+    </div>
+
+    <div class="school-name">المدرسة العليا للأساتذة - القبة</div>
+    <div class="ensk">ENSK</div>
+
+    <form action="oo.php" method="post">
+      <label for="role">نوع المستخدم</label>
+      <div class="input-container">
+        <select id="role" name="role" required>
+          <option value="">-- اختر --</option>
+          <option value="etudiant">طالب</option>
+          <option value="enseignant">أستاذ</option>
+          <option value="chef">رئيس قسم</option>
+        </select>
+        <i class="fas fa-user"></i>
+      </div>
+
+      <label for="email">البريد الإلكتروني</label>
+      <div class="input-container">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني" />
+      </div>
+
+      <label for="password">كلمة المرور</label>
+      <div class="input-container">
+        <i class="fas fa-eye" id="togglePassword"></i>
+        <input type="password" id="password" name="password" required placeholder="أدخل كلمة المرور" />
+      </div>
+
+      <button type="submit">تسجيل الدخول</button>
+
+      <a href="صفحة كلمة السر.html" class="forgot-link">نسيت كلمة المرور؟</a>
+    </form>
+
+    <div class="footer">نظام إدارة الغيابات &copy; 2025</div>
+  </div>
+
+  <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
+
+</body>
+</html>
